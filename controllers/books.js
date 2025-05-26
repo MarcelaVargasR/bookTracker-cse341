@@ -1,45 +1,78 @@
-function createBook(req, res) {
+const { Book } = require("../models/Book");
+
+async function createBook(req, res) {
+  try {
+    const body = req.body;
+
+    const newBook = await new Book({
+      title: body.title,
+      author: body.author,
+      genre: body.genre,
+      publishedDate: new Date(body.publishedDate),
+      status: body.status,
+      rating: body.rating,
+      description: body.description,
+    }).save(); //retorn a promise
+
+    res.json(newBook);
+  } catch (error) {
+    //error handling
+    console.error(error);
+    res.status(404).json({
+      message: "Unable to create user",
+    });
+  }
+}
+
+async function getBooks(req, res) {
+  const books = await Book.find();
+  res.json(books);
+}
+
+async function getBookById(req, res) {
+  const bookId = req.params.id;
+
+  try {
+    const bookById = await Book.findOne({ _id: bookId });
+    res.json(bookById);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({
+      message: "Book not found",
+    });
+  }
+}
+
+async function updateBookById(req, res) {
+  const bookId = req.params.id;
   const body = req.body;
-  res.json({
-    _id: "1234",
-    title: "titi.......",
-  });
+
+  try {
+    const bookUpdate = await Book.findByIdAndUpdate(bookId, body, {
+      new: true,
+    });
+
+    res.json(bookUpdate);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({
+      message: "Unable to update book",
+    });
+  }
 }
 
-function getBooks(req, res) {
-  res.json([
-    {
-      _id: "1234",
-      title: "titi",
-    },
-  ]);
-}
-
-function getBookById(req, res) {
+async function deleteBookById(req, res) {
   const bookId = req.params.id;
-  console.log(bookId);
-  res.json({
-    _id: "1234",
-    title: "cocacola",
-  });
-}
 
-function updateBookById(req, res) {
-  const bookId = req.params.id;
-  const body = req.body;
-  console.log(bookId, body);
-  res.json({
-    _id: "1234",
-    title: "titi",
-  });
-}
-
-function deleteBookById(req, res) {
-  const bookId = req.params.id;
-  res.json({
-    _id: "1234",
-    title: "titi",
-  });
+  try {
+    const bookDelete = await Book.deleteOne({ _id: bookId });
+    res.json(bookDelete);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({
+      message: "Unable to delete book",
+    });
+  }
 }
 
 module.exports = {

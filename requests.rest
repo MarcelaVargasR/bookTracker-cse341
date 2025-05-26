@@ -3,7 +3,13 @@ POST  http://localhost:3001/books
 Content-Type: application/json
 
 {
-    "title": "titi:ghjdkl6tuyf"
+  "title": "Atomic Habits 3",
+  "author": "James Lorens",
+  "genre": "Self-help",
+  "publishedDate": "2018-10-16",
+  "status": "read",
+  "rating": 5,
+  "notes": "Very insightful!"
 }
 
 
@@ -13,29 +19,37 @@ Content-Type: application/json
 
 
 ### get book by id
-GET http://localhost:3001/books/9876
+GET http://localhost:3001/books/6834ada6c8c0d4f7a925515
 Content-Type: application/json
 
 
 ### update book by id put
-PUT http://localhost:3001/books/1234
+PUT http://localhost:3001/books/6834b6b40cfb415f406b5e7f
 Content-Type: application/json
 
 {
-   "title": "titi:update" 
+  "title": "Atomic Habits 3",
+  "author": "James rocks",
+  "genre": "Self-help",
+  "publishedDate": "2018-10-16",
+  "status": "read",
+  "rating": 5,
+  "notes": "Very insightful!"
 }
 
 ### delete book by id delete
-DELETE http://localhost:3001/books/1234
+DELETE http://localhost:3001/books/6834b6b40cfb415f406b5e7f
 Content-Type: application/json
 
-
+/////////////////////////////////////////////////////////////////
 ### create users
 POST  http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "firstName": "Jhonas"
+    "name": "Monica",
+    "lastName": "Rodriguez",
+    "email": "monica@test.com"
 }
 
 ### get users
@@ -44,18 +58,20 @@ Content-Type: application/json
 
 
 ### get users by id
-GET http://localhost:3001/users/1234
+GET http://localhost:3001/users/6834d874e56787a7f2d5ead8
 Content-Type: application/json
 
 
 ### update users by id put
-PUT http://localhost:3001/users/1234
+PUT http://localhost:3001/users/6834d874e56787a7f2d5ead8
 Content-Type: application/json
 
 {
-   "firstName": "Lucia" 
+    "name": "Monica",
+    "lastName": "Vasquez",
+    "email": "monica@test.com"
 }
 
 ### delete book by id delete
-DELETE http://localhost:3001/users/1234
+DELETE http://localhost:3001/users/6834d874e56787a7f2d5ead8
 Content-Type: application/json
