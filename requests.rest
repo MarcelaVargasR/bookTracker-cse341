@@ -28,3 +28,34 @@ Content-Type: application/json
 ### delete book by id delete
 DELETE http://localhost:3001/books/1234
 Content-Type: application/json
+
+
+### create users
+POST  http://localhost:3001/users
+Content-Type: application/json
+
+{
+    "firstName": "Jhonas"
+}
+
+### get users
+GET http://localhost:3001/users
+Content-Type: application/json
+
+
+### get users by id
+GET http://localhost:3001/users/1234
+Content-Type: application/json
+
+
+### update users by id put
+PUT http://localhost:3001/users/1234
+Content-Type: application/json
+
+{
+   "firstName": "Lucia" 
+}
+
+### delete book by id delete
+DELETE http://localhost:3001/users/1234
+Content-Type: application/json
