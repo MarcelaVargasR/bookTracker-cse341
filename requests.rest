@@ -1,0 +1,30 @@
+### create book
+POST  http://localhost:3001/books
+Content-Type: application/json
+
+{
+    "title": "titi:ghjdkl6tuyf"
+}
+
+
+### get books
+GET http://localhost:3001/books
+Content-Type: application/json
+
+
+### get book by id
+GET http://localhost:3001/books/9876
+Content-Type: application/json
+
+
+### update book by id put
+PUT http://localhost:3001/books/1234
+Content-Type: application/json
+
+{
+   "title": "titi:update" 
+}
+
+### delete book by id delete
+DELETE http://localhost:3001/books/1234
+Content-Type: application/json
