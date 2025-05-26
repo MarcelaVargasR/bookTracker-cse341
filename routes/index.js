@@ -1,4 +1,7 @@
-const router = require('express').Router();
-router.get('/', (req, res) => {res.send('Hello World')});
+const { Router } = require("express"); //destrocturing router from express
+const router = new Router();
+const booksRouter = require("./books");
+
+router.use("/books", booksRouter);
 
 module.exports = router;
