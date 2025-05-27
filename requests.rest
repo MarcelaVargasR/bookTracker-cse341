@@ -3,13 +3,13 @@ POST  http://localhost:3001/books
 Content-Type: application/json
 
 {
-  "title": "The Power of Now",
-  "author": "Eckhart Tolle",
-  "genre": "Spirituality",
-  "publishedDate": "1997-08-19",
-  "status": "to-read",
-  "rating": 2,
-  "description": "Recommended by a friend"
+  "title": "Dune",
+  "author": "Frank Herbert",
+  "genre": "Science Fiction",
+  "publishedDate": "1965-08-01",
+  "status": "read",
+  "rating": 5,
+  "description": "Epic world-building and politics"
 }
 
 
@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 
 ### delete book by id delete
-DELETE http://localhost:3001/books/6834b6b40cfb415f406b5e7f
+DELETE http://localhost:3001/books/6834ae9b20804c39b48ccb70
 Content-Type: application/json
 
 /////////////////////////////////////////////////////////////////
@@ -47,9 +47,9 @@ POST  http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "name": "Monica",
-    "lastName": "Rodriguez",
-    "email": "monica@test.com"
+   "name": "Diego",
+  "lastName": "Fernandez",
+  "email": "diego.fernandez@sample.org"
 }
 
 ### get users

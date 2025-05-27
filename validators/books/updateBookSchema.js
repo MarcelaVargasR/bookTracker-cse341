@@ -4,7 +4,7 @@ const updateBookSchema = joi.object({
   title: joi.string().required(),
   author: joi.string().required(),
   genre: joi.string().required(),
-  publishedDate: joi.date().format("YYYY-MM-DD"),
+  publishedDate: joi.date().iso().required(),
   status: joi.string().valid("read", "reading", "to-read").optional().messages({
     "any.only": "Status must be one of: read, reading, to-read",
   }),
