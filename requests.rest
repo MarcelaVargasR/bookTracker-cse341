@@ -3,13 +3,13 @@ POST  http://localhost:3001/books
 Content-Type: application/json
 
 {
-  "title": "Atomic Habits 3",
-  "author": "James Lorens",
-  "genre": "Self-help",
-  "publishedDate": "2018-10-16",
-  "status": "read",
-  "rating": 5,
-  "notes": "Very insightful!"
+  "title": "The Power of Now",
+  "author": "Eckhart Tolle",
+  "genre": "Spirituality",
+  "publishedDate": "1997-08-19",
+  "status": "to-read",
+  "rating": 2,
+  "description": "Recommended by a friend"
 }
 
 
