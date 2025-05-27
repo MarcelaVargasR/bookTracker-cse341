@@ -1,7 +1,6 @@
 const { Book } = require("../models/Book");
 
 async function createBook(req, res) {
-
   try {
     const body = req.body;
 
@@ -16,7 +15,6 @@ async function createBook(req, res) {
     }).save(); //retorn a promise
 
     res.json(newBook);
-
   } catch (error) {
     //error handling
     console.error(error);
@@ -37,7 +35,6 @@ async function getBookById(req, res) {
   try {
     const bookById = await Book.findOne({ _id: bookId });
     res.json(bookById);
-    
   } catch (error) {
     console.error(error);
     res.status(404).json({
@@ -65,6 +62,7 @@ async function updateBookById(req, res) {
 
 async function deleteBookById(req, res) {
   const bookId = req.params.id;
+
   try {
     const bookDelete = await Book.deleteOne({ _id: bookId });
     res.json(bookDelete);
