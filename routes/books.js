@@ -10,8 +10,9 @@ const {
 const { validateData } = require("../midlewares/validator");
 const { createBookSchema } = require("../validators/books/createBookSchema");
 const {updateBookSchema} = require("../validators/books/updateBookSchema");
+const { isAuthenticated } = require("../midlewares/isAuthenticated.JS");
 
-router.route("/").post(validateData(createBookSchema), createBook);
+router.route("/").post(isAuthenticated, validateData(createBookSchema), createBook);
 router.route("/").get(getBooks);
 router.route("/:id").get(getBookById);
 router.route("/:id").put(validateData(updateBookSchema), updateBookById);
