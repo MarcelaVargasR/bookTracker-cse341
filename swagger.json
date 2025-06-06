@@ -7,7 +7,7 @@
   },
   "host": "booktracker-cse341.onrender.com",
   "basePath": "/",
-  "schemes": ["http", "https"],
+  "schemes": ["https"],
   "paths": {
     "/books/": {
       "post": {
