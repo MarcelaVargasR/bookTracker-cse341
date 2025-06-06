@@ -13,10 +13,10 @@ const {updateBookSchema} = require("../validators/books/updateBookSchema");
 const { isAuthenticated } = require("../midlewares/isAuthenticated");
 
 router.route("/").post(isAuthenticated, validateData(createBookSchema), createBook);
-router.route("/").get(getBooks);
+router.route("/").get(isAuthenticated, getBooks);
 router.route("/:id").get(getBookById);
-router.route("/:id").put(validateData(updateBookSchema), updateBookById);
-router.route("/:id").delete(deleteBookById);
+router.route("/:id").put(isAuthenticated, validateData(updateBookSchema), updateBookById);
+router.route("/:id").delete(isAuthenticated, deleteBookById);
 
 
 module.exports = router;

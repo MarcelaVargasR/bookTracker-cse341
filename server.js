@@ -76,7 +76,7 @@ passport.deserializeUser((user, done) => {
 app.get("/", (req, res) => {
   const message =
     req.session.user !== undefined
-      ? `Loggedin as ${JSON.stringify(req.session.user)}`
+      ? `Logged in as ${req.session.user.displayName}`
       : "Not logged in";
   res.json({
     message,
@@ -87,7 +87,7 @@ app.get(
   "/auth/github/callback",
   passport.authenticate(
     "github",
-    { failureRedirect: "/api-docs", session: false },
+    { failureRedirect: "/api-docs", session: true },
     (req, res) => {
       req.session.user = req.user;
       res.redirect("/");
@@ -96,5 +96,5 @@ app.get(
 );
 
 app.listen(port, () => {
-  console.log(`server runningo on port ${port}`);
+  console.log(`server running on port ${port}`);
 });
