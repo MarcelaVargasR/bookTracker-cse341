@@ -12,6 +12,7 @@ const validateData = (schema) => {
     } catch (e) {
       if (e?.details) {
         return res.status(400).json({
+           message: "you are not authorized",
             error: e
         })
       }
